@@ -4,28 +4,18 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"]
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/apps/server/main"
+      "dest": "/dist/apps/server/main.js"
     }
   ],
   "env": {
     "NODE_ENV": "production"
   },
-  "build": {
-    "env": {
-      "DATABASE_URL": "@database-url",
-      "API_KEY": "@api-key"
-    }
-  },
-  "github": {
-    "silent": true
-  }
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/apps/server"
 }
