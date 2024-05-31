@@ -13,7 +13,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/apps/server/main"
+      "dest": "/dist/apps/server/main"
     }
   ],
   "env": {
@@ -25,12 +25,6 @@
       "API_KEY": "@api-key"
     }
   },
-  "ignoreBuild": [
-    {
-      "src": ".*/",
-      "use": "@vercel/ignore"
-    }
-  ],
   "github": {
     "silent": true
   }
