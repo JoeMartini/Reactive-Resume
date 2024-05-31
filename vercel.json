@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "name": "reactive-resume",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/**"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/apps/server/main"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "DATABASE_URL": "@database-url",
+      "API_KEY": "@api-key"
+    }
+  },
+  "ignoreBuild": [
+    {
+      "src": ".*/",
+      "use": "@vercel/ignore"
+    }
+  ],
+  "github": {
+    "silent": true
+  }
+}
